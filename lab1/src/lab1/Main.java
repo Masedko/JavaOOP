@@ -1,4 +1,4 @@
-package com.company;
+package lab1;
 
 import java.util.Scanner;
 /**
@@ -16,11 +16,15 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Print a, b, n, m:");
 		int a, b, n, m;
-
+		// Reading custom a, b, n, m
 		do {
 			try{
 				String a_str = sc.nextLine();
 				a = Integer.parseInt(a_str);
+				if (a < 0){
+					System.out.println("Char cannot be negative, try once more time.");
+					continue;
+				}
 				break;
 			}
 			catch (NumberFormatException e)
@@ -34,6 +38,10 @@ public class Main {
 			try{
 				String b_str = sc.nextLine();
 				b = Integer.parseInt(b_str);
+				if (b < 0){
+					System.out.println("Char cannot be negative, try once more time.");
+					continue;
+				}
 				break;
 			}
 			catch (NumberFormatException e)
@@ -47,6 +55,10 @@ public class Main {
 			try{
 				String n_str = sc.nextLine();
 				n = Integer.parseInt(n_str);
+				if (n < 0){
+					System.out.println("Char cannot be negative, try once more time.");
+					continue;
+				}
 				break;
 			}
 			catch (NumberFormatException e)
@@ -60,6 +72,10 @@ public class Main {
 			try{
 				String m_str = sc.nextLine();
 				m = Integer.parseInt(m_str);
+				if (m < 0){
+					System.out.println("Char cannot be negative, try once more time.");
+					continue;
+				}
 				break;
 			}
 			catch (NumberFormatException e)
@@ -68,12 +84,12 @@ public class Main {
 			}
 		}
 		while (true);
-		if (a < 0 || b < 0 || n < 0 || m < 0) {
-			System.out.println("You entered negative number, but char cannot be negative.");
+		final int C = 1;
+		if (a > n || b > m){
+			System.out.println("Upper limit less than lower limit");
 			return;
 		}
-		final int C = 1;
-		if ((a + C <= 0 && n + C >= 0) || b == 0) {
+		if (a + C <= 0 && n + C >= 0) {
 			System.out.println("Value can not be calculated. Dividing by zero found");
 			return;
 		}
